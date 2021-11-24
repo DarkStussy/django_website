@@ -23,6 +23,7 @@ Windows console:
  Activate virtualenv:
  >dj_env\Scripts\activate
  
+ 
  >pip install django
  
  >pip install python-dotenv
