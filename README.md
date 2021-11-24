@@ -16,8 +16,11 @@ Windows console:
  
  If virtualenv isn't installed:
  >pip install --user virtualenv
-    
+ 
+ Create virtualenv:
  >python -m venv dj_env
+
+ Activate virtualenv:
  >dj_env\Scripts\activate
  
  >pip install django
