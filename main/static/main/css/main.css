@@ -1,0 +1,75 @@
+body {
+    background: rgb(149,109,246);
+    background: linear-gradient(90deg, rgba(149,109,246,1) 0%, rgba(110,110,110,1) 100%);
+}
+.dropdown .dropdown-menu a:hover
+{
+  background-color: lavender;
+}
+
+article {
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+article section {
+    text-align: center;
+    margin-top: 10px;
+    color: aliceblue;
+}
+
+.alert-dark {
+    background: linear-gradient(90deg, rgba(149,109,246,1) 0%, rgba(150,150,150,1) 100%);
+    color: aliceblue;
+    font-family: "Courier New";
+    margin: auto;
+    width: 80%;
+}
+
+.product-buyer-name {
+    max-width: 150ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.revs p, .revs h4 {
+    text-align: left;
+}
+
+.revs h4 {
+     font-weight: bold;
+}
+
+form {
+    width: 400px;
+    margin: auto;
+}
+
+.alert-light {
+    margin-top: 50px;
+    background: #292b2c;
+    color: aliceblue;
+    font-family: Arial;
+    border-style: none;
+}
+
+.prf-info p {
+    color: aliceblue;
+}
+
+.h-user {
+    color: aliceblue;
+}
+
+.edit-prf {
+    color: aliceblue;
+}
+
+.prf-card {
+    background-color: #292b2c;
+}
+
+.mod-cont {
+    background-color: #292b2c;
+}

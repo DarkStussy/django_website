@@ -1,0 +1,21 @@
+{% extends "main/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+    <h1>Create an account</h1>
+    <p>Please, sign up using the following form:</p>
+    <form action="." method="post">
+        <div class="alert alert-light">
+            {{ user_form.username|as_crispy_field }}
+            {{ user_form.first_name|as_crispy_field }}
+            {{ user_form.email|as_crispy_field }}
+            {{ user_form.password|as_crispy_field }}
+            {{ user_form.password2|as_crispy_field }}
+            {% csrf_token %}
+            <button class="btn btn-light" type="submit">Create my account</button><br>
+        </div>
+    </form>
+{% endblock %}

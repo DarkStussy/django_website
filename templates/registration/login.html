@@ -1,0 +1,32 @@
+{% extends "main/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% if form.errors %}
+  <p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+  {% if user.is_authenticated %}
+    <h3>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</h3>
+  {% else %}
+    <h3>Please login to see this page.</h3>
+  {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+    <div class="alert alert-light">
+        {% csrf_token %}
+        {{ form.username|as_crispy_field }}<br>
+        {{ form.password|as_crispy_field }}<br>
+        <button class="btn btn-light" type="submit">Login</button><br>
+        <input type="hidden" name="next" value="{{ next }}" /><br>
+        <p><a href="{% url 'password_reset' %}" style="color: aliceblue;">Lost password?</a></p>
+        <p><a href="{% url 'register' %}" style="color: aliceblue;">Click here to create an account</a></p>
+    </div>
+</form>
+
+{% endblock %}

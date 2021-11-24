@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Reviews {% endblock %}
+
+{% block review_func_add %}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Functions</a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'create_review' %}">Create review</a></li>
+        </ul>
+    </li>
+{% endblock %}
+
+{% block content %}
+    {% if reviews %}
+        <div class="alert alert-dark revs">
+            {% for el in reviews %}
+                    <h4>User: {{ el.name }}</h4>
+                    <p>{{ el.text }}</p>
+                    {% if perms.reviews.delete_reviews %}
+                    <a href="{% url 'reviews-delete' el.id %}"><button class="btn btn-danger">Delete</button></a>
+                    {% endif %}
+                <br>
+            {% endfor %}
+        </div>
+        {% else %}
+            <p>Записей нет!</p>
+        {% endif %}
+{% endblock %}

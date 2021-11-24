@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Create{% endblock %}
+
+{% block content %}
+<div class="features">
+        <h1>Create a new review</h1>
+        <form method="post">
+            {% csrf_token %}<br>
+            {{ form.text }}<br>
+            {{ form.name }}
+            <button class="btn btn-dark" type="submit">Add</button>
+        </form>
+    </div>
+{% endblock %}
