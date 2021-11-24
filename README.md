@@ -24,7 +24,9 @@ Windows console:
  >dj_env\Scripts\activate
  
  >pip install django
+ 
  >pip install python-dotenv
+ 
  >pip install crispy-bootstrap5
  
  Create super user:
