@@ -1,10 +1,20 @@
 body {
-    background: rgb(149,109,246);
-    background: linear-gradient(90deg, rgba(149,109,246,1) 0%, rgba(110,110,110,1) 100%);
+    background: rgb(149, 109, 246);
+    background: linear-gradient(90deg, rgba(149, 109, 246, 1) 0%, rgba(110, 110, 110, 1) 100%);
 }
-.dropdown .dropdown-menu a:hover
-{
-  background-color: lavender;
+
+.dropdown .dropdown-menu a:hover {
+    background-color: lavender;
+}
+
+.main-img {
+    width: 90px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.settings .nav-link {
+    color: darkgrey;
 }
 
 article {
@@ -19,7 +29,7 @@ article section {
 }
 
 .alert-dark {
-    background: linear-gradient(90deg, rgba(149,109,246,1) 0%, rgba(150,150,150,1) 100%);
+    background: linear-gradient(90deg, rgba(149, 109, 246, 1) 0%, rgba(150, 150, 150, 1) 100%);
     color: aliceblue;
     font-family: "Courier New";
     margin: auto;
@@ -27,10 +37,19 @@ article section {
 }
 
 .product-buyer-name {
-    max-width: 150ch;
+    max-width: 100ch;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.article-img {
+    width: 250px;
+    border-radius: 50%;
+}
+
+.read-more {
+    font-family: Courier;
 }
 
 .revs p, .revs h4 {
@@ -38,7 +57,7 @@ article section {
 }
 
 .revs h4 {
-     font-weight: bold;
+    font-weight: bold;
 }
 
 form {

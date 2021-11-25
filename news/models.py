@@ -6,6 +6,7 @@ from django.views.generic import CreateView, DeleteView, UpdateView
 class Articles(models.Model):
     title = models.CharField('Title', max_length=50)
     full_text = models.TextField('Text')
+    article_img = models.ImageField(upload_to='images/', null=True, blank=True)
     date = models.DateTimeField('Date published')
 
     def __str__(self):
@@ -22,7 +23,7 @@ class Articles(models.Model):
 class CreatePostView(PermissionRequiredMixin, CreateView):
     permission_required = 'news.add_articles'
     model = Articles
-    fields = ('title', 'full_text', 'date')
+    fields = ('title', 'full_text', 'article_img', 'date')
 
 
 class UpdatePostView(PermissionRequiredMixin, UpdateView):
@@ -33,4 +34,4 @@ class UpdatePostView(PermissionRequiredMixin, UpdateView):
 class DeletePostView(PermissionRequiredMixin, DeleteView):
     permission_required = 'news.delete_articles'
     model = Articles
-    fields = ('title', 'full_text', 'date')
+    fields = ('title', 'full_text', 'article_img', 'date')

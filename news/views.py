@@ -9,30 +9,27 @@ from .forms import ArticlesForm
 
 
 def home_news(request):
-    news = Articles.objects.order_by('-date')
-    return render(request, 'news/home_news.html', {'news': news})
+    if request.method == 'GET':
+        news = Articles.objects.order_by('-date')
+        return render(request, 'news/home_news.html', {'news': news})
 
 
 @permission_required('news.add_articles', raise_exception=True)
 def create(request):
     if request.method == "POST":
-        form = ArticlesForm(request.POST)
+        form = ArticlesForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('home_news')
         else:
             messages.error(request, 'Error. Form isn\'t valid')
-
-    form = ArticlesForm()
-
-    data = {
-        'form': form
-    }
+    else:
+        form = ArticlesForm()
 
     if not request.user.has_perm('news.add_articles'):
         raise PermissionDenied
     else:
-        return render(request, 'news/create.html', data)
+        return render(request, 'news/create.html', {'form': form})
 
 
 class NewsDetailView(DetailView):

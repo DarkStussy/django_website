@@ -19,8 +19,7 @@
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container-fluid">
-        <img src="{% static 'main/img/Stussy.png' %}" alt="logo"
-             style="width: 85px; margin-left: 10px; margin-right: 10px" ;>
+        <img class="main-img" src="{% static 'main/img/Stussy.png' %}" alt="logo">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,9 +48,9 @@
                     {% block article_functions %}{% endblock %}
                 {% endif %}
             </ul>
-            <div class="dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                   style="color: darkgrey;"></i>Settings</a>
+            <div class="dropdown settings">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    Settings</a>
                 <ul class="dropdown-menu">
                     {% if user.is_authenticated %}
                         <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>

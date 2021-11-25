@@ -6,7 +6,7 @@ from news.models import Articles
 class ArticlesForm(ModelForm):
     class Meta:
         model = Articles
-        fields = ['title', 'full_text', 'date']
+        fields = ['title', 'full_text', 'article_img', 'date']
 
         widgets = {
             "title": TextInput(attrs={

@@ -5,14 +5,9 @@
 {% block content %}
 <div class="features">
         <h1>Create a new article</h1>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}<br>
-            {{ form.title }}<br>
-            {{ form.anons }}<br>
-            {{ form.full_text }}<br>
-            {{ form.date }}<br>
-
-            <span>{{ error }}</span>
+            {{ form.as_p }}
             <button class="btn btn-dark" type="submit">Add</button>
         </form>
     </div>
