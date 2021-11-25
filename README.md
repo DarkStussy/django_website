@@ -30,6 +30,8 @@ Windows console:
  
  >pip install crispy-bootstrap5
  
+ >pip install django-cleanup
+ 
  Create super user:
  >python manage.py createsuperuser
 
