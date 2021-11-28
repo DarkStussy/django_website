@@ -20,9 +20,9 @@ def create_review(request):
             form.save()
             return redirect('reviews')
         else:
-            messages.error('Error. Form isn\'t valid')
+            messages.error(request, 'Error. Form isn\'t valid')
 
-    form = ReviewsForm(initial={'name': request.user.username})
+    form = ReviewsForm(initial={'author': request.user})
 
     data = {
         'form': form

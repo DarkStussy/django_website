@@ -1,14 +1,14 @@
-from django.forms import ModelForm, Textarea, CharField, HiddenInput, DateTimeField
-
+from django.contrib.auth.models import User
+from django.forms import ModelForm, Textarea, ModelChoiceField, HiddenInput
 from .models import Reviews
 
 
 class ReviewsForm(ModelForm):
-    name = CharField(max_length=20, widget=HiddenInput())
+    author = ModelChoiceField(queryset=User.objects.all(), widget=HiddenInput())
 
     class Meta:
         model = Reviews
-        fields = ['name', 'text']
+        fields = ['author', 'text']
 
         widgets = {
             "text": Textarea(attrs={

@@ -28,7 +28,7 @@ article section {
     color: aliceblue;
 }
 
-.alert-dark {
+.news {
     background: linear-gradient(90deg, rgba(149, 109, 246, 1) 0%, rgba(150, 150, 150, 1) 100%);
     color: aliceblue;
     font-family: "Courier New";
@@ -53,12 +53,27 @@ article section {
 }
 
 .revs p, .revs h4 {
-    text-align: left;
+    text-align: center;
+}
+
+.revs .revs-img {
+    width: 150px;
+    border-radius: 50%;
+    padding: 5px;
 }
 
 .revs h4 {
     font-weight: bold;
 }
+
+.revs {
+    background-color: unset;
+    color: aliceblue;
+    font-family: "Courier New";
+    width: 380px;
+    height: 410px;
+}
+
 
 form {
     width: 400px;

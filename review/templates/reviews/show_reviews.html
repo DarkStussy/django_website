@@ -13,17 +13,23 @@
 
 {% block content %}
     {% if reviews %}
-        <div class="alert alert-dark revs">
-            {% for el in reviews %}
-                    <h4>User: {{ el.name }}</h4>
-                    <p>{{ el.text }}</p>
-                    {% if perms.reviews.delete_reviews %}
-                    <a href="{% url 'reviews-delete' el.id %}"><button class="btn btn-danger">Delete</button></a>
-                    {% endif %}
-                <br>
-            {% endfor %}
-        </div>
-        {% else %}
-            <p>No reviews</p>
-        {% endif %}
+            <div class="row">
+                {% for el in reviews %}
+                <div class="col-sm-4 col-revs">
+                    <div class="alert alert-dark revs">
+                        <img class="revs-img" src="{{ el.author.profile.image.url }}">
+                        <h4>{{ el.author.username }}</h4>
+                        <p>{{ el.text }}</p>
+                        {% if perms.reviews.delete_reviews %}
+                            <a href="{% url 'reviews-delete' el.id %}">
+                                <button class="btn btn-danger">Delete</button>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    {% else %}
+        <p>No reviews</p>
+    {% endif %}
 {% endblock %}
