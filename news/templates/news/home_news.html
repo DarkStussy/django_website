@@ -16,7 +16,9 @@
     {% if news %}
         {% for el in news %}
             <div class="alert alert-dark news">
+                {% if el.article_img %}
                 <p><img src="{{ el.article_img.url }}" class="article-img">
+                {% endif %}
                 <h3>{{ el.title }}</h3>
                 <p class="product-buyer-name">{{ el.full_text }}</p>
                 <a href="{% url 'news-detail' el.id %}" class="btn btn-dark read-more">Read more</a>

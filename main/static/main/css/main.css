@@ -44,8 +44,7 @@ article section {
 }
 
 .article-img {
-    width: 250px;
-    border-radius: 50%;
+    width: 450px;
 }
 
 .read-more {
@@ -67,11 +66,11 @@ article section {
 }
 
 .revs {
+    margin: auto;
     background-color: unset;
     color: aliceblue;
     font-family: "Courier New";
-    width: 380px;
-    height: 410px;
+    width: 70%;
 }
 
 
