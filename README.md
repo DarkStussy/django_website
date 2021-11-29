@@ -6,34 +6,34 @@ THIS IS MY FIRST PROJECT IN DJANGO.
 Using the project:
 
 
-  Windows console:
-   >cd C:/Users/user/django_project
+ Windows console:
+  >cd C:/Users/user/django_project
 
-   >git init
-   >git clone https://github.com/DarkStussy/django_website.git
+  >git init
+  >git clone https://github.com/DarkStussy/django_website.git
 
-   >cd django_website
+  >cd django_website
 
-   If virtualenv isn't installed:
-   >pip install --user virtualenv
+  If virtualenv isn't installed:
+  >pip install --user virtualenv
 
-   Create virtualenv:
-   >python -m venv dj_env
+  Create virtualenv:
+  >python -m venv dj_env
 
-   Activate virtualenv:
-   >dj_env\Scripts\activate
+  Activate virtualenv:
+  >dj_env\Scripts\activate
 
-   Installation libraries:
-   >pip install django
+  Installation libraries:
+  >pip install django
 
-   >pip install python-dotenv
+  >pip install python-dotenv
 
-   >pip install crispy-bootstrap5
+  >pip install crispy-bootstrap5
 
-   >pip install django-cleanup
+  >pip install django-cleanup
 
-   Create super user:
-   >python manage.py createsuperuser
+  Create super user:
+  >python manage.py createsuperuser
 
-   Start server:
-   >python manage.py runserver
+  Start server:
+  >python manage.py runserver
