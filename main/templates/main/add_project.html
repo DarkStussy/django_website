@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Add project{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Add a new project</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}<br>
+            {{ form|crispy }}
+            <button class="btn btn-dark" type="submit">Add</button>
+        </form>
+    </div>
+{% endblock %}

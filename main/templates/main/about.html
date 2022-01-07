@@ -1,16 +1,55 @@
 {% extends 'main/base.html' %}
 
+{% load static %}
+
+{% block add_project %}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Functions</a>
+        <ul class="dropdown-menu">
+            {% if perms.main.add_portfolio %}
+                <li><a class="dropdown-item" href="{% url 'add_project' %}">Add project</a></li>
+            {% endif %}
+        </ul>
+    </li>
+{% endblock %}
+
 {% block title %}About me{% endblock %}
 
 {% block content %}
-        <h1>About me</h1>
-        <p>here are many variations of passages of Lorem Ipsum available, but the majority have suffered
-            alteration in some form, by injected humour, or randomised words which don't look even slightly
-            believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-            anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet
-            tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
-            It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures,
-            to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free
-            from repetition, injected humour, or non-characteristic words etc.
-        </p>
+    <div class="row" style="text-align: center;">
+        <div class="col-lg-3">
+            <img src="{% static 'main/img/my_photo.jpg' %}" class="rounded my-photo">
+        </div>
+        <div class="col p-5">
+            <h2 id="hometext" class="font-weight-bold">Dark Stussy is beginner developer and lives in Sofia.</h2>
+            <h2 id="hometext" class="font-weight-bold">Programming languages: Python, C++</h2>
+            <h2 id="hometext" class="font-weight-bold">Works with Django, aiogram, Unreal Engine...(The list is growing) </h2>
+        </div>
+    </div>
+
+    <h2 class="mt-5">My projects</h2>
+    <hr>
+    <div class="row">
+        {% for project in projects %}
+            <div class="col-lg-4 col-md-6">
+
+                {% if project.url %}
+                    <a href="{{ project.url }}">
+                        <img src="{{ project.image.url }}" class="img-fluid mb-2">
+                    </a>
+                {% else %}
+
+                    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+                {% endif %}
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                {% if perms.main.delete_portfolio %}
+                    <a href="{% url 'delete-project' project.id %}">
+                        <button class="btn btn-danger">Delete</button>
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}

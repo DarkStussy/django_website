@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,16 +30,24 @@
                     <a class="nav-link" href="{% url 'index' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home_news' %}">News</a>
+                    <div class="dropdown settings">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            About me</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'about' %}">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/DarkStussy" target="_blank">GitHub</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About me</a>
+                    <a class="nav-link" href="{% url 'home_news' %}">News</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'reviews' %}">Reviews</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'feedback' %}">Feedback</a>
+                    <a href="{% url 'feedback' %}" class="nav-link">Feedback</a>
                 </li>
                 {% block review_func_add %}{% endblock %}
                 {% if perms.news.add_articles %}
@@ -46,6 +55,9 @@
                 {% endif %}
                 {% if perms.news %}
                     {% block article_functions %}{% endblock %}
+                {% endif %}
+                {% if perms.main.add_portfolio %}
+                    {% block add_project %}{% endblock %}
                 {% endif %}
             </ul>
             <div class="dropdown settings">

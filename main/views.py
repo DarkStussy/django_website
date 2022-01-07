@@ -1,7 +1,11 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import permission_required
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
+from django.views.generic import DeleteView
 
-from .forms import FeedbackForm
+from .forms import FeedbackForm, PortfolioForm
+from .models import Portfolio, DeletePortfolioView
 
 
 def index(request):
@@ -9,7 +13,33 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'main/about.html')
+    portfolio = Portfolio.objects.all()
+    return render(request, 'main/about.html', {"projects": portfolio})
+
+
+@permission_required('main.add_portfolio', raise_exception=True)
+def add_project(request):
+    if request.method == "POST":
+        form = PortfolioForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('about')
+        else:
+            messages.error(request, 'Error. Form isn\'t valid')
+    else:
+        form = PortfolioForm()
+
+    if not request.user.has_perm('main.add_portfolio'):
+        raise PermissionDenied
+    else:
+        return render(request, 'main/add_project.html', {'form': form})
+
+
+class DeleteProjectView(DeletePortfolioView, DeleteView):
+    model = Portfolio
+    success_url = '/about'
+    template_name = 'main/project_delete.html'
+    context_object_name = 'project'
 
 
 def feedback_show(request):

@@ -1,6 +1,25 @@
-from django.forms import ModelForm, TextInput, DateTimeInput, EmailInput, Textarea
+from django.forms import ModelForm, TextInput, EmailInput, Textarea, URLField
 
-from main.models import Feedback
+from .models import Feedback
+from .models import Portfolio
+
+
+class PortfolioForm(ModelForm):
+    class Meta:
+        model = Portfolio
+        fields = ['title', 'description', 'image', 'url']
+
+    widgets = {
+        "title": TextInput(attrs={
+            "class": "form-control",
+            "placeholder": "Title",
+
+        }),
+        "description": Textarea(attrs={
+            "class": "form-control",
+            "placeholder": "Description"
+        })
+    }
 
 
 class FeedbackForm(ModelForm):
@@ -14,7 +33,7 @@ class FeedbackForm(ModelForm):
             "placeholder": "Name",
 
         }),
-        "date": EmailInput(attrs={
+        "email": EmailInput(attrs={
             "class": "form-control",
             "placeholder": "Email"
         }),
