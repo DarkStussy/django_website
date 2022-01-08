@@ -27,6 +27,8 @@ Using the project:
   Installation libraries:
   >pip install django
 
+  >pip install Pillow
+
   >pip install python-dotenv
 
   >pip install crispy-bootstrap5
