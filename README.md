@@ -10,6 +10,7 @@ Using the project:
   >cd C:/Users/user/django_project
 
   >git init
+  
   >git clone https://github.com/DarkStussy/django_website.git
 
   >cd django_website
