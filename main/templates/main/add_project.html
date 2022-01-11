@@ -10,7 +10,7 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}<br>
             {{ form|crispy }}
-            <button class="btn btn-dark" type="submit">Add</button>
+            <button class="send-button" type="submit">Add</button>
         </form>
     </div>
 {% endblock %}

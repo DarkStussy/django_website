@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block title %}About me{% endblock %}
+
+{% block content %}
+    <h2 class="mt-5">My projects</h2>
+    <a href="{% url 'add_project' %}" class="btn btn-outline-dark">Add a project</a>
+    <hr>
+    <div class="row portfolio">
+        {% for project in projects %}
+            <div class="col-lg-4 col-md-6">
+                <a href="{% url 'project-detail' project.id %}">
+                    <div class="portfolio-thumb">
+                        <img src="{{ project.image.url }}" class="img-responsive" alt="Portfolio">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-item">
+                                <h3>{{ project.title }}</h3>
+                                <small>{{ project.field }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

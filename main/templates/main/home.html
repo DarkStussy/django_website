@@ -1,14 +1,20 @@
 {% extends 'main/base.html' %}
 
+{% load static %}
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
-        <h1>Home</h1>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took
-            a galley of type and scrambled it to make a type specimen book. It has survived not only
-            five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
+    <div class="row" style="text-align: center;">
+        <div class="col-lg-3">
+            <img src="{% static 'main/img/my_photo.jpg' %}" class="rounded my-photo">
+        </div>
+        <div class="col p-5">
+            <h2 id="hometext" class="font-weight-bold">Dark Stussy is beginner developer and lives in Sofia.</h2>
+            <h2 id="hometext" class="font-weight-bold">Programming languages: Python, C++</h2>
+            <h2 id="hometext" class="font-weight-bold">Works with Django, aiogram, Unreal Engine...(The list is
+                growing) </h2>
+        </div>
+    </div><br><br>
+    <h5>Take a look at my <a href="{% url 'projects' %}">projects </a></h5>
 {% endblock %}

@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
-from django.views.generic import DeleteView
+from django.views.generic import DeleteView, DetailView
 
 from .forms import FeedbackForm, PortfolioForm
 from .models import Portfolio, DeletePortfolioView
@@ -12,9 +12,9 @@ def index(request):
     return render(request, 'main/home.html')
 
 
-def about(request):
+def projects(request):
     portfolio = Portfolio.objects.all()
-    return render(request, 'main/about.html', {"projects": portfolio})
+    return render(request, 'main/projects.html', {"projects": portfolio})
 
 
 @permission_required('main.add_portfolio', raise_exception=True)
@@ -33,6 +33,12 @@ def add_project(request):
         raise PermissionDenied
     else:
         return render(request, 'main/add_project.html', {'form': form})
+
+
+class DetailProjectView(DetailView):
+    model = Portfolio
+    template_name = 'main/project_detail.html'
+    context_object_name = 'project'
 
 
 class DeleteProjectView(DeletePortfolioView, DeleteView):

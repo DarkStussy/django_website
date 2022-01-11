@@ -13,6 +13,9 @@
 {% endblock %}
 
 {% block content %}
+    {% if perms.news.add_articles %}
+        <a href="{% url 'create' %}"><button type="button" class="btn btn-outline-dark">Create a post</button></a><br><br>
+    {% endif %}
     <div class="row">
     {% if news %}
         {% for el in news %}
@@ -21,8 +24,8 @@
                 <p><img src="{{ el.article_img.url }}" class="article-img">
                 {% endif %}
                 <h3>{{ el.title }}</h3>
-                <p class="product-buyer-name">{{ el.full_text }}</p>
-                <a href="{% url 'news-detail' el.id %}" class="btn btn-outline-light read-more">Read more</a>
+                <p class="product-buyer-name">{{ el.full_text|striptags|truncatechars:100 }}</p>
+                <a href="{% url 'news-detail' el.id %}" class="btn btn-outline-dark read-more">Read more</a>
             </div>
         {% endfor %}
         </div>

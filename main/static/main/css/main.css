@@ -1,20 +1,61 @@
 body {
-    background: rgb(149, 109, 246);
-    background: linear-gradient(90deg, rgba(149, 109, 246, 1) 0%, rgba(110, 110, 110, 1) 100%);
+    background: #ffffff;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 300;
+    overflow-x: hidden;
 }
 
-.dropdown .dropdown-menu a:hover {
-    background-color: lavender;
+#feedback .form-control {
+    border: 1px solid #f0f0f0;
+    box-shadow: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all 0.4s ease-in-out;
+}
+
+.send-button {
+    background: #222;
+    border-radius: 100px;
+    border: none;
+    color: #ffffff;
+    font-weight: 400;
+    width: 150px;
+    height: 40px;
+    transition: all 0.4s ease-in-out;
+}
+
+.send-button:hover {
+    background: #000;
+}
+
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background: none repeat scroll 0 0 #F1F1F1;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgba(0, 0, 0, .5) !important;
 }
 
 .main-img {
-    width: 90px;
+    width: 180px;
     margin-left: 10px;
     margin-right: 10px;
-}
-
-.settings .nav-link {
-    color: darkgrey;
 }
 
 article {
@@ -25,7 +66,6 @@ article {
 article section {
     text-align: center;
     margin-top: 10px;
-    color: aliceblue;
 }
 
 .news-col {
@@ -34,7 +74,6 @@ article section {
 }
 
 .product-buyer-name {
-    max-width: 100ch;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -42,10 +81,6 @@ article section {
 
 .article-img {
     width: 200px;
-}
-
-.read-more {
-    font-family: Courier;
 }
 
 .revs p, .revs h4 {
@@ -65,8 +100,6 @@ article section {
 .revs {
     margin: auto;
     background-color: unset;
-    color: aliceblue;
-    font-family: "Courier New";
     width: 70%;
 }
 
@@ -78,37 +111,111 @@ form {
 
 .alert-light {
     margin-top: 50px;
-    background: #292b2c;
-    color: aliceblue;
-    font-family: Arial;
+    background: #ffffff;
     border-style: none;
 }
 
-.prf-info p {
-    color: aliceblue;
+.alert-light a {
+    text-decoration: none;
+    color: black;
 }
 
-.h-user {
-    color: aliceblue;
+.alert-light a:hover {
+    color: #909090;
 }
 
-.edit-prf {
-    color: aliceblue;
-}
-
-.prf-card {
-    background-color: #292b2c;
-}
-.mod-cont {
-    background-color: #292b2c;
+.prf-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
 }
 
 .my-photo {
     width: 250px;
 }
 
+.img-responsive {
+    width: 300px;
+    height: 300px;
+}
+
+.portfolio .portfolio-thumb {
+    position: relative;
+    padding: 0;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto auto auto;
+}
+
+.portfolio .portfolio-thumb .portfolio-overlay {
+    position: absolute;
+    background: #222;
+    color: #ffffff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: top;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.portfolio .portfolio-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.portfolio .portfolio-thumb:hover .portfolio-overlay {
+    opacity: 0.7;
+}
+
 @media (min-width: 992px) {
     #hometext {
         font-size: 35px;
     }
+}
+
+footer {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 20px;
+    position: relative;
+}
+
+footer .col-md-3 .fa {
+    font-size: 42px;
+}
+
+footer a {
+    color: #555;
+}
+
+footer hr {
+    border-color: #ffffff;
+    margin-top: 42px;
+    margin-bottom: 22px;
+}
+
+footer .footer-copyright {
+    padding-top: 16px;
+    text-align: center;
+}
+
+footer .footer-row .col {
+    text-align: center;
+}
+
+
+body a {
+    color: black;
+}
+
+body a:hover {
+    color: #7E7E7E;
 }

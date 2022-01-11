@@ -6,26 +6,11 @@
 
 {% block content %}
     <p>If you have any questions or suggestions, then contact me through this form.</p>
-    <button type="button" class="btn btn-outline-light" data-bs-toggle="modal"
-                                    data-bs-target="#myFeedback">Click</button>
-
-    <div class="modal fade" tabindex="-1" id="myFeedback" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content mod-cont">
-                <div class="modal-header">
-                    <h5 class="modal-title h-user">Feedback</h5>
-                </div>
-                <div class="modal-body edit-prf">
-                    <form method="post">
-                        {{ form|crispy }}
-                        {% csrf_token %}
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" type="submit">Send</button>
-                    </form>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <form method="post" id="feedback">
+        {{ form.name }}
+        {{ form.email }}
+        {{ form.message }}
+        {% csrf_token %}
+        <button class="send-button" type="submit">Send</button><br><br>
+    </form>
 {% endblock %}

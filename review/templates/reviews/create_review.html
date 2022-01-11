@@ -4,12 +4,12 @@
 
 {% block content %}
 <div class="features">
-        <h1>Create a new review</h1>
+        <h1>Create a review</h1>
         <form method="post">
             {% csrf_token %}<br>
             {{ form.text }}<br>
             {{ form.author }}
-            <button class="btn btn-dark" type="submit">Add</button>
+            <button class="send-button" type="submit">Add</button><br><br>
         </form>
     </div>
 {% endblock %}

@@ -1,4 +1,5 @@
-from django.forms import ModelForm, TextInput, EmailInput, Textarea, URLField
+from django.forms import ModelForm, TextInput, Textarea, CharField, EmailField
+from django import forms
 
 from .models import Feedback
 from .models import Portfolio
@@ -7,12 +8,17 @@ from .models import Portfolio
 class PortfolioForm(ModelForm):
     class Meta:
         model = Portfolio
-        fields = ['title', 'description', 'image', 'url']
+        fields = ['title', 'field', 'description', 'image', 'url']
 
     widgets = {
         "title": TextInput(attrs={
             "class": "form-control",
-            "placeholder": "Title",
+            "placeholder": "Title"
+
+        }),
+        "field": TextInput(attrs={
+            "class": "form-control",
+            "placeholder": "Field"
 
         }),
         "description": Textarea(attrs={
@@ -23,22 +29,10 @@ class PortfolioForm(ModelForm):
 
 
 class FeedbackForm(ModelForm):
+    name = CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'class': 'form-control'}))
+    email = EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email', 'class': 'form-control'}))
+    message = CharField(widget=forms.Textarea(attrs={'placeholder': 'Message', 'class': 'form-control'}))
+
     class Meta:
         model = Feedback
         fields = ['name', 'email', 'message']
-
-    widgets = {
-        "Name": TextInput(attrs={
-            "class": "form-control",
-            "placeholder": "Name",
-
-        }),
-        "email": EmailInput(attrs={
-            "class": "form-control",
-            "placeholder": "Email"
-        }),
-        "message": Textarea(attrs={
-            "class": "form-control",
-            "placeholder": "Message"
-        })
-    }

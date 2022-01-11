@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h3>{{ project.title }}</h3>
+        <small>{{ project.field }}</small><br>
+        {% if project.url %}
+            <a href="{{ project.url }}">Link</a><br><br>
+        {% endif %}
+        <p>{{ project.description }}</p>
+        {% if perms.main.delete_portfolio %}
+            <a href="{% url 'delete-project' project.id %}">
+                <button class="btn btn-danger">Delete</button>
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}
