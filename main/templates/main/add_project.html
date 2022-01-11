@@ -8,7 +8,7 @@
     <div class="features">
         <h1>Add a new project</h1>
         <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}<br>
+            {% csrf_token %}
             {{ form|crispy }}
             <button class="send-button" type="submit">Add</button>
         </form>

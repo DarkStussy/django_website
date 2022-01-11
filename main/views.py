@@ -23,7 +23,7 @@ def add_project(request):
         form = PortfolioForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('about')
+            return redirect('projects')
         else:
             messages.error(request, 'Error. Form isn\'t valid')
     else:
