@@ -43,7 +43,7 @@ class DetailProjectView(DetailView):
 
 class DeleteProjectView(DeletePortfolioView, DeleteView):
     model = Portfolio
-    success_url = '/about'
+    success_url = '/projects'
     template_name = 'main/project_delete.html'
     context_object_name = 'project'
 
