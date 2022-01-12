@@ -5,16 +5,19 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <div class="row" style="text-align: center;">
-        <div class="col-lg-3">
-            <img src="{% static 'main/img/my_photo.jpg' %}" class="rounded my-photo">
+    <div class="row justify-content-center my-3">
+        <div class="col-5">
+            <img src="{% static 'main/img/my_photo.jpg' %}" class="img-fluid">
         </div>
-        <div class="col p-5">
-            <h2 id="hometext" class="font-weight-bold">Dark Stussy is beginner developer and lives in Sofia.</h2>
-            <h2 id="hometext" class="font-weight-bold">Programming languages: Python, C++</h2>
-            <h2 id="hometext" class="font-weight-bold">Works with Django, aiogram, Unreal Engine...(The list is
-                growing) </h2>
+    </div>
+
+    <div class="row justify-content-center mb-3">
+        <div class="col-md-9 text-center">
+            <h3 id="hometext" class="font-weight-bold">Dark Stussy is beginner developer and lives in Sofia.</h3>
+            <h3 id="hometext" class="font-weight-bold">Programming languages: Python, C++</h3>
+            <h3 id="hometext" class="font-weight-bold">Works with Django, aiogram, Unreal Engine...(The list is
+                growing) </h3>
         </div>
-    </div><br><br>
+    </div>
     <h5>Take a look at my <a href="{% url 'projects' %}">projects </a></h5>
 {% endblock %}

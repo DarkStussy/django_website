@@ -1,3 +1,22 @@
+/* preloader */
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background: none repeat scroll 0 0 #F1F1F1;
+}
+
+
+/* body */
+
 body {
     background: #ffffff;
     font-family: Raleway;
@@ -6,13 +25,41 @@ body {
     overflow-x: hidden;
 }
 
-#feedback .form-control {
-    border: 1px solid #f0f0f0;
-    box-shadow: none;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    transition: all 0.4s ease-in-out;
+article {
+    margin-right: 100px;
+    margin-left: 100px;
 }
+
+article section {
+    text-align: center;
+    margin-top: 10px;
+}
+
+body a {
+    color: black;
+}
+
+body a:hover {
+    color: #7E7E7E;
+}
+
+/* navbar */
+
+.main-img {
+    width: 180px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgba(0, 0, 0, .5) !important;
+}
+
+/* button */
 
 .send-button {
     background: #222;
@@ -29,44 +76,13 @@ body {
     background: #000;
 }
 
+/* Home */
 
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 99999;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    background: none repeat scroll 0 0 #F1F1F1;
+.my-photo {
+    width: 200px;
 }
 
-.navbar-nav .nav-link {
-    color: rgba(0, 0, 0, 1) !important;
-}
-
-.navbar-nav .nav-link:hover {
-    color: rgba(0, 0, 0, .5) !important;
-}
-
-.main-img {
-    width: 180px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-article {
-    margin-right: 100px;
-    margin-left: 100px;
-}
-
-article section {
-    text-align: center;
-    margin-top: 10px;
-}
+/* News */
 
 .news-col {
     padding-top: 10px;
@@ -82,6 +98,8 @@ article section {
 .article-img {
     width: 200px;
 }
+
+/* Reviews */
 
 .revs p, .revs h4 {
     text-align: center;
@@ -103,11 +121,14 @@ article section {
     width: 70%;
 }
 
+/* forms */
 
 form {
-    width: 400px;
-    margin: auto;
+    width: 250px;
+    margin: auto auto;
 }
+
+/* Profile */
 
 .alert-light {
     margin-top: 50px;
@@ -125,14 +146,12 @@ form {
 }
 
 .prf-img {
-    width: 200px;
-    height: 200px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
 }
 
-.my-photo {
-    width: 250px;
-}
+/* Projects */
 
 .img-responsive {
     width: 300px;
@@ -176,11 +195,20 @@ form {
     opacity: 0.7;
 }
 
-@media (min-width: 992px) {
-    #hometext {
-        font-size: 35px;
-    }
+/* Feedback */
+
+#feedback .send-button {
+    width: 100px;
 }
+
+#feedback .form-control {
+    border: 1px solid #f0f0f0;
+    box-shadow: none;
+    transition: all 0.4s ease-in-out;
+    margin: 10px auto 10px auto;
+}
+
+/* Footer */
 
 footer {
     border-top: 1px solid #f0f0f0;
@@ -211,11 +239,55 @@ footer .footer-row .col {
     text-align: center;
 }
 
-
-body a {
-    color: black;
+@media (max-width: 480px) {
+    form {
+        width: 150px;
+    }
 }
 
-body a:hover {
-    color: #7E7E7E;
+@media (max-width: 350px) {
+    form {
+        width: 100px;
+    }
+    #feedback {
+        width: 150px;
+    }
+
+    #feedback {
+        width: 100px;
+    }
+}
+
+
+@media (min-width: 720px) {
+    #hometext {
+        font-size: 40px;
+    }
+
+    .logo {
+        width: 190px;
+        height: 120px;
+    }
+
+    .my-photo {
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    #feedback {
+        width: 500px;
+    }
+
+    #feedback .send-button {
+        width: 150px;
+    }
+
+    .prf-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    form {
+        width: 400px;
+    }
 }

@@ -4,7 +4,9 @@
 
 {% block content %}
     <h2 class="mt-5">My projects</h2>
+    {% if perms.main.add_project %}
     <a href="{% url 'add_project' %}" class="btn btn-outline-dark">Add a project</a>
+    {% endif %}
     <hr>
     <div class="row portfolio">
         {% for project in projects %}
